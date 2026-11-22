@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angela Christina (羅景景) ✨ Personal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #fdf2f8 45%, #fff9f5 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(244, 114, 182, 0.25);
+            --text-main: #3f2e3e;
+            --text-soft: #70586d;
+            --pink-primary: #e11d74;
+            --pink-soft: #fce7f3;
+            --rose-gold: #c88a65;
+            --gold-accent: #d4af37;
+            --gold-light: #fef9e7;
+            --shadow-lux: 0 15px 35px -5px rgba(225, 29, 116, 0.08), 0 5px 15px rgba(200, 138, 101, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative floating luxury glow */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        body::before {
+            width: 350px;
+            height: 350px;
+            background: #fbcfe8;
+            top: -80px;
+            right: -60px;
+        }
+
+        body::after {
+            width: 300px;
+            height: 300px;
+            background: #fde68a;
+            bottom: -60px;
+            left: -60px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* Top Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding: 0.85rem 1.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 999px;
+            box-shadow: var(--shadow-lux);
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--pink-primary);
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.35rem;
+            background: var(--pink-soft);
+            padding: 0.3rem;
+            border-radius: 999px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn.active {
+            background: #ffffff;
+            color: var(--pink-primary);
+            box-shadow: 0 2px 8px rgba(225, 29, 116, 0.15);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 28px;
+            padding: 3.25rem 2.75rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lux);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: linear-gradient(90deg, #fce7f3, #fef3c7);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #9d174d;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.45rem 1.2rem;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', 'Noto Sans TC', serif;
+            font-size: 3.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--rose-gold);
+            font-weight: 600;
+            font-size: 2.2rem;
+        }
+
+        .hero-desc {
+            max-width: 640px;
+            margin: 1rem auto 2rem;
+            font-size: 1.05rem;
+            color: var(--text-soft);
+        }
+
+        .info-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .chip {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        /* Email CTA */
+        .email-box {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #fff0f6 0%, #fffbeb 100%);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            padding: 0.65rem 0.85rem 0.65rem 1.35rem;
+            border-radius: 999px;
+        }
+
+        .email-text {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #ec4899, #d97706);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+        }
+
+        /* Grid Section */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 720px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 2.25rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.35rem;
+            }
+            .hero h1 span {
+                display: block;
+                font-size: 1.65rem;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lux);
+            transition: transform 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #fce7f3, #fef3c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .card h2 {
+            font-family: 'Cormorant Garamond', 'Noto Sans TC', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Skills List */
+        .skill-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid rgba(244, 114, 182, 0.2);
+            padding: 0.85rem 1.1rem;
+            border-radius: 16px;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .skill-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: var(--gold-light);
+            color: #92400e;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        /* Education Items */
+        .edu-block {
+            padding: 1rem 1.15rem;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(244, 114, 182, 0.2);
+            margin-bottom: 0.85rem;
+        }
+
+        .edu-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--pink-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .edu-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .edu-sub {
+            font-size: 0.88rem;
+            color: var(--text-soft);
+        }
+
+        /* Travel Section */
+        .travel-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 24px;
+            padding: 2.2rem;
+            box-shadow: var(--shadow-lux);
+            margin-bottom: 2rem;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        @media (max-width: 680px) {
+            .destinations {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dest-box {
+            background: linear-gradient(180deg, #ffffff 0%, #fff8fb 100%);
+            border: 1px solid rgba(244, 114, 182, 0.25);
+            border-radius: 18px;
+            padding: 1.35rem;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .dest-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-accent);
+        }
+
+        .dest-flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dest-city {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .dest-country {
+            font-size: 0.82rem;
+            color: var(--rose-gold);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .dest-note {
+            font-size: 0.84rem;
+            color: var(--text-soft);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 0.88rem;
+            padding-top: 1.5rem;
+        }
+
+        footer span {
+            color: var(--pink-primary);
+            font-weight: 600;
+        }
+
+        /* Multi-language display rules */
+        body[data-lang="id"] .en, body[data-lang="id"] .zh { display: none; }
+        body[data-lang="en"] .id, body[data-lang="en"] .zh { display: none; }
+        body[data-lang="zh"] .id, body[data-lang="zh"] .en { display: none; }
+    </style>
+</head>
+<body data-lang="id">
+
+    <div class="container">
+        <!-- Navbar -->
+        <header>
+            <div class="brand">✨ Angela Christina</div>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('id', this)">ID</button>
+                <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+                <button class="lang-btn" onclick="setLang('zh', this)">中文</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-pill">
+                <span>🌷</span>
+                <span class="id">Mahasiswi Teknik & Manajemen Industri · Friendly & Passionate</span>
+                <span class="en">Industrial Management Student · Friendly & Passionate</span>
+                <span class="zh">工業管理系學生 · 親切熱情</span>
+            </div>
+
+            <h1>Angela Christina <span>(羅景景)</span></h1>
+
+            <p class="hero-desc">
+                <span class="id">Hai! Selamat datang di halaman profilku ✨ Aku mahasiswi jurusan Industrial Management di Lunghwa University of Science and Technology yang suka hal-hal terorganisir, estetis, dan selalu antusias mengeksplorasi tempat-tempat baru!</span>
+                <span class="en">Hi! Welcome to my personal page ✨ I'm an Industrial Management undergraduate at Lunghwa University of Science and Technology who loves staying organized, aesthetic vibes, and exploring new destinations!</span>
+                <span class="zh">嗨！歡迎來到我的個人主頁 ✨ 我目前就讀於龍華科技大學工業管理系，喜歡有條理且充滿美感的生活，也熱愛探索世界各地的美好風景！</span>
+            </p>
+
+            <div class="info-chips">
+                <div class="chip">🎂 <span>15 Juni 2004</span></div>
+                <div class="chip">🎓 <span>Lunghwa University (LHU)</span></div>
+                <div class="chip">🌸 <span>Taiwan</span></div>
+            </div>
+
+            <div>
+                <div class="email-box">
+                    <a href="mailto:w1154251029@gm.lhu.edu.tw" class="email-text">💌 w1154251029@gm.lhu.edu.tw</a>
+                    <button class="copy-btn" onclick="copyEmail()">
+                        <span class="id" id="copyLabelId">Salin Email</span>
+                        <span class="en" id="copyLabelEn">Copy Email</span>
+                        <span class="zh" id="copyLabelZh">複製信箱</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Grid: Skills & Education -->
+        <div class="grid">
+            <!-- Microsoft Office Skills -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-circle">💼</div>
+                    <h2>
+                        <span class="id">Keahlian & Tools</span>
+                        <span class="en">Skills & Office Suite</span>
+                        <span class="zh">文書與軟體技能</span>
+                    </h2>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">📘 Microsoft Word</div>
+                    <span class="skill-badge">
+                        <span class="id">Dokumen & Laporan</span>
+                        <span class="en">Docs & Reports</span>
+                        <span class="zh">專業文書排版</span>
+                    </span>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">📙 Microsoft PowerPoint</div>
+                    <span class="skill-badge">
+                        <span class="id">Presentasi Estetik</span>
+                        <span class="en">Creative Slides</span>
+                        <span class="zh">簡報設計製作</span>
+                    </span>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">📗 Microsoft Excel</div>
+                    <span class="skill-badge">
+                        <span class="id">Olah Data & Tabel</span>
+                        <span class="en">Data & Spreadsheets</span>
+                        <span class="zh">數據整理分析</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Education & Language -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-circle">🎀</div>
+                    <h2>
+                        <span class="id">Pendidikan & Sertifikasi</span>
+                        <span class="en">Education & Language</span>
+                        <span class="zh">學歷與語言檢定</span>
+                    </h2>
+                </div>
+
+                <div class="edu-block">
+                    <div class="edu-tag">
+                        <span class="id">S1 · Sedang Menempuh Studi</span>
+                        <span class="en">Undergraduate Student</span>
+                        <span class="zh">大學在學中</span>
+                    </div>
+                    <div class="edu-title">Lunghwa University of Science and Technology</div>
+                    <div class="edu-sub">
+                        <span class="id">Jurusan Industrial Management (工業管理系)</span>
+                        <span class="en">Department of Industrial Management</span>
+                        <span class="zh">工業管理系</span>
+                    </div>
+                </div>
+
+                <div class="edu-block">
+                    <div class="edu-tag">2026 · Language Certification</div>
+                    <div class="edu-title">TOCFL (Test of Chinese as a Foreign Language)</div>
+                    <div class="edu-sub">
+                        <span class="id">Sertifikasi Kemampuan Bahasa Mandarin</span>
+                        <span class="en">Mandarin Proficiency Computer-Based Test</span>
+                        <span class="zh">華語文能力測驗認證</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Section -->
+        <section class="travel-card">
+            <div class="card-header">
+                <div class="icon-circle">✈️</div>
+                <h2>
+                    <span class="id">Destinasi Favorit & Hobi Travelling</span>
+                    <span class="en">Favorite Travel Destinations</span>
+                    <span class="zh">旅行足跡與喜愛城市</span>
+                </h2>
+            </div>
+            <p style="color: var(--text-soft); font-size: 0.95rem;">
+                <span class="id">Di luar aktivitas kuliah, aku suka banget jalan-jalan, kulineran, dan menikmati suasana kota-kota seru di Asia Tenggara!</span>
+                <span class="en">Outside of university life, I love travelling, café hopping, and soaking up the vibrant atmosphere of Southeast Asian cities!</span>
+                <span class="zh">在課業之餘，我非常喜歡出國旅遊、探索美食與感受東南亞城市的獨特魅力！</span>
+            </p>
+
+            <div class="destinations">
+                <div class="dest-box">
+                    <div class="dest-flag">🇹🇭</div>
+                    <div class="dest-city">Bangkok</div>
+                    <div class="dest-country">Thailand</div>
+                    <div class="dest-note">
+                        <span class="id">Kuliner lezat, café lucu & belanja seru</span>
+                        <span class="en">Amazing street food, cute cafés & shopping</span>
+                        <span class="zh">道地美食、質感咖啡廳與購物天堂</span>
+                    </div>
+                </div>
+
+                <div class="dest-box">
+                    <div class="dest-flag">🇲🇾</div>
+                    <div class="dest-city">Kuala Lumpur</div>
+                    <div class="dest-country">Malaysia</div>
+                    <div class="dest-note">
+                        <span class="id">Perpaduan budaya modern & kuliner khas</span>
+                        <span class="en">Vibrant city vibes & rich cultural flavors</span>
+                        <span class="zh">現代都市魅力與多元文化美食</span>
+                    </div>
+                </div>
+
+                <div class="dest-box">
+                    <div class="dest-flag">🇸🇬</div>
+                    <div class="dest-city">Singapura</div>
+                    <div class="dest-country">Singapore</div>
+                    <div class="dest-note">
+                        <span class="id">Kota cantik, estetik, bersih & nyaman</span>
+                        <span class="en">Aesthetic architecture, clean & modern city</span>
+                        <span class="zh">精緻現代建築與舒適的城市漫步</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with 💖 & ✨ by <span>Angela Christina (羅景景)</span> · 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        function setLang(lang, btn) {
+            document.body.setAttribute('data-lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function copyEmail() {
+            const email = "w1154251029@gm.lhu.edu.tw";
+            navigator.clipboard.writeText(email).then(() => {
+                const idEl = document.getElementById('copyLabelId');
+                const enEl = document.getElementById('copyLabelEn');
+                const zhEl = document.getElementById('copyLabelZh');
+
+                idEl.textContent = "Tersalin! ✨";
+                enEl.textContent = "Copied! ✨";
+                zhEl.textContent = "已複製！✨";
+
+                setTimeout(() => {
+                    idEl.textContent = "Salin Email";
+                    enEl.textContent = "Copy Email";
+                    zhEl.textContent = "複製信箱";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
